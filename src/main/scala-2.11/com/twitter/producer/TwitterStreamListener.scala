@@ -15,12 +15,7 @@ class TwitterStreamListener(twitterStream: TwitterStream) extends StatusListener
   def onScrubGeo(l: Long, l1: Long): Unit = {}
 
   def onStatus(status: Status): Unit = {
-    val msg = new KeyedMessage[String, String](TwitterProducerConfig.KAFKA_TOPIC, TwitterObjectFactory.getRawJSON(status.getText))
-
-    println("getUser = " + status.getUser)
-    println("getName = " + status.getUser.getName)
-    println("getText = " + status.getText)
-    println("----------------------------")
+    val msg = new KeyedMessage[String, String](TwitterProducerConfig.KAFKA_TOPIC, TwitterObjectFactory.getRawJSON(status))
     producer.send(msg)
   }
 

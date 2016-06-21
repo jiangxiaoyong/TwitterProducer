@@ -2,7 +2,7 @@ Docker instructions
 ============================
 Zookeeper Docker
 ----------------------------
-- docker run -it name  zookeeper --expose 2181 -p 2181:2181 -d jiangxiaoyong/zookeeper
+- docker run -it --name zookeeper --expose 2181 -p 2181:2181 -d jiangxiaoyong/zookeeper
 - docker start zookeeper
 - docker exec zookeeper /zookeeper-3.4.8/bin/zkServer.sh start
 
