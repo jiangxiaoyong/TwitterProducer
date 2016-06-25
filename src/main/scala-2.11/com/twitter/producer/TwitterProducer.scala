@@ -10,8 +10,12 @@ class TwitterProducer {
     val listener = new TwitterStreamListener(twitterStream) with StringKafkaProducer
     twitterStream.addListener(listener)
 
-    val filterUsOnly = new FilterQuery().locations(Array(-122.75,36.8),Array(-121.75,37.8))
-    twitterStream.filter(filterUsOnly)
+    val tweetFilterQuery = new FilterQuery()
+    tweetFilterQuery.locations(Array(-180, -90),Array(180, 90)) //based on location
+    val lang = tweetFilterQuery.language("en") //based on language
+//    tweetFilterQuery.track("ps4")
+
+    twitterStream.filter(lang)
     //twitterStream.sample()
   }
 }
