@@ -29,7 +29,7 @@ Running the twitter producer
 ```
 $ docker exec -it producer /bin/bash
 ```
--'sbt run' at /app folder inside producer container
+- 'sbt run' at /app folder inside producer container
 
 
 Running the complete Streaming Twitter Sentiment Analysis
